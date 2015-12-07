@@ -1,0 +1,2 @@
+#!/bin/sh
+maim ~/Pictures/Screenshots/$(date +%F-%T).png -s -c 0.6,0,0,0.6 -p 1

@@ -1,0 +1,46 @@
+#!/bin/sh
+ 
+# Coloring the output
+healthy='#74cc28'
+hot='#cc2828'
+blight='#8adae6'
+bdark='#14acc2'
+
+# Variables
+cpu_healthy=60
+gpu_healthy=60
+s='|'
+ 
+while :
+do
+    # Get values
+    cpu=$(sensors | grep "Physical id 0:")
+    gpu=$(nvidia-smi -q -d TEMPERATURE | awk '/GPU Current Temp/ {print $5}')
+    fday=$(date '+%A')
+    fdate=$(date '+%d.%m.%Y')
+    ftime=$(date '+%l:%M')
+    
+    # Format values
+    cpu="${cpu:17:2}"
+
+    if (($cpu >= $cpu_healthy));
+    then
+        cpus="CPU <span color=\"$hot\">$cpu</span>"
+    else
+        cpus="CPU <span color=\"$healthy\">$cpu</span>"
+    fi
+
+    if (($gpu >= $gpu_healthy));
+    then
+        gpus="GPU <span color=\"$hot\">$gpu</span>"
+    else
+        gpus="GPU <span color=\"$healthy\">$gpu</span>"
+    fi
+    
+    dates="<span color=\"$blight\">$fdate</span>"
+    times="<span color=\"$bdark\">$ftime</span>"
+
+    # Output the result
+    echo " $fday $dates $s   $cpus $gpus $s $times "
+    sleep 5
+done
