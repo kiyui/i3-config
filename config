@@ -212,6 +212,7 @@ set $fm "nautilus"
 set $www "firefox"
 
 # custom bindings
+bindsym $mod+Shift+a exec pavucontrol
 bindsym $mod+Shift+x exec $lockcmd
 bindsym $mod+Shift+s exec i3-nagbar -m ' System menu' -b 'shutdown' $shutcmd -b 'reboot' $rebcmd
 bindsym XF86AudioNext exec playerctl next
@@ -234,4 +235,5 @@ exec telegram
 exec owncloud
 exec redshift-gtk
 exec compton --config ~/.config/i3/compton.conf
+exec twmnd
 exec_always feh --bg-fill ~/.theme/wallpaper.jpg
