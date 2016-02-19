@@ -1,0 +1,3 @@
+#!/bin/sh
+files=(~/.theme/wallpaper-*.png)
+feh --bg-fill ${files[RANDOM % ${#files[@]}]}

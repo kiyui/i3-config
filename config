@@ -191,7 +191,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 bar {
         position top
         status_command ~/.config/i3/status
-        tray_output primary
+        # tray_output primary
         tray_padding 2
         separator_symbol ""
         colors {
@@ -222,6 +222,8 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
 bindsym XF86AudioLowerVolume exec amixer set Master 5%-
 bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 bindsym Print exec ~/.config/i3/bin/maimshot
 bindsym $mod+Print exec ~/.config/i3/bin/maimcrop
 bindsym Ctrl+Mod1+Right workspace next
@@ -236,4 +238,5 @@ exec owncloud
 exec redshift-gtk
 exec compton --config ~/.config/i3/compton.conf
 exec twmnd
-exec_always feh --bg-fill ~/.theme/wallpaper.jpg
+exec nm-applet
+exec_always sh ~/.config/i3/bin/wallpaper

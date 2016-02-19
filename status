@@ -5,6 +5,10 @@ healthy='#74cc28'
 hot='#cc2828'
 blight='#8adae6'
 bdark='#14acc2'
+batt_healthy='#8cc350'
+batt_full='#98ef3b'
+batt_low='#ff1919'
+batt_discharge='#f7f78f'
 
 # Variables
 cpu_healthy=60
@@ -19,6 +23,8 @@ do
     fday=$(date '+%A')
     fdate=$(date '+%d.%m.%Y')
     ftime=$(date '+%l:%M')
+    capacity=`cat /sys/class/power_supply/BAT1/capacity`
+    status=`cat /sys/class/power_supply/BAT1/status`
     
     # Format values
     cpu="${cpu:17:2}"
@@ -36,11 +42,47 @@ do
     else
         gpus="GPU <span color=\"$healthy\">$gpu</span>"
     fi
+
+    if (($capacity >= 95));
+    then
+        battery="<span color=\"$batt_full\"></span>"
+    elif (($capacity >= 75));
+    then
+        if [[ "$status" = "Discharging" ]]
+        then
+            battery="<span color=\"$batt_discharge\"></span>"
+        else
+            battery="<span color=\"$batt_healthy\"></span>"
+        fi
+    elif (($capacity >= 50));
+    then
+        if [[ "$status" = "Discharging" ]]
+        then
+            battery="<span color=\"$batt_discharge\"></span>"
+        else
+            battery="<span color=\"$batt_healthy\"></span>"
+        fi
+    elif (($capacity >= 25));
+    then
+        if [[ "$status" = "Discharging" ]]
+        then
+            battery="<span color=\"$batt_discharge\"></span>"
+        else
+            battery="<span color=\"$batt_healthy\"></span>"
+        fi
+    else
+        if [[ "$status" = "Discharging" ]]
+        then
+            battery="<span color=\"$batt_low\"></span>"
+        else
+            battery="<span color=\"$batt_healthy\"></span>"
+        fi
+    fi
     
     dates="<span color=\"$blight\">$fdate</span>"
     times="<span color=\"$bdark\">$ftime</span>"
 
     # Output the result
-    echo " $fday $dates $s   $cpus $gpus $s $times "
+    echo " $fday $dates $s   $cpus $gpus $s $battery  $s $times "
     sleep 5
 done
