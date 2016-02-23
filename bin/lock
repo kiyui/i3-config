@@ -1,5 +1,5 @@
 #!/bin/sh
-scrot /tmp/screen.png
+/usr/bin/maim /tmp/screen.png
 convert /tmp/screen.png  -channel RGBA  -blur 0x4  /tmp/screen.png
 playerctl stop
 i3lock -u -i /tmp/screen.png
