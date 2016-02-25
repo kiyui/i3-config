@@ -4,11 +4,11 @@ My unified i3 config for all my devices. Features:
 * easily configurable status bar
 
 Requires:
-* (twmn)[https://github.com/sboli/Twmn]
-* (feh)[https://github.com/derf/feh]
-* (maim)[https://github.com/naelstrof/maim]
-* (playerctl)[https://github.com/acrisci/playerctl]
-* (imagemagick)[https://github.com/ImageMagick/ImageMagick]
+* [twmn](https://github.com/sboli/Twmn)
+* [feh](https://github.com/derf/feh)
+* [maim](https://github.com/naelstrof/maim)
+* [playerctl](https://github.com/acrisci/playerctl)
+* [imagemagick](https://github.com/ImageMagick/ImageMagick)
 * i3lock, i3-nagbar
 
 # wallpaper setup
