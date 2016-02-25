@@ -1,0 +1,8 @@
+#!/bin/sh
+
+source ~/.config/i3/env
+
+for ((i = 0; i < ${#executables[@]}; i++))
+do
+    ${executables[$i]} &
+done

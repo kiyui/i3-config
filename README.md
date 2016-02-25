@@ -9,6 +9,7 @@ Requires:
 * [maim](https://github.com/naelstrof/maim)
 * [playerctl](https://github.com/acrisci/playerctl)
 * [imagemagick](https://github.com/ImageMagick/ImageMagick)
+* [compton](https://github.com/chjj/compton)
 * i3lock, i3-nagbar
 
 # wallpaper setup
@@ -30,3 +31,8 @@ If all the default values are sufficient, you needn't create an `env` file. You 
 CAPACITY_COMMAND="echo disabled"
 ```
 
+# start-up programs
+Add a list of programs as so into the `env` file.
+```
+executables=("nm-applet" "firefox" "spotify" "telegram" "owncloud" "redshift-gtk")
+```

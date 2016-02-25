@@ -231,12 +231,7 @@ bindsym Ctrl+Mod1+Left workspace prev
 bindsym Ctrl+Mod1+f exec $www
 bindsym Ctrl+Mod1+n exec $fm
 
-exec firefox
-exec spotify
-exec telegram
-exec owncloud
-exec redshift-gtk
 exec compton --config ~/.config/i3/compton.conf
 exec twmnd
-exec nm-applet
+exec sh ~/.config/i3/bin/programs
 exec_always sh ~/.config/i3/bin/wallpaper
