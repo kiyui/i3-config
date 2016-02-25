@@ -36,3 +36,9 @@ Add a list of programs as so into the `env` file.
 ```
 executables=("nm-applet" "firefox" "spotify" "telegram" "owncloud" "redshift-gtk")
 ```
+
+# screenshots
+Laptop:
+![laptop](screenshots/laptop.png)
+Desktop:
+![desktop](screenshots/desktop.png)
