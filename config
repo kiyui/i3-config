@@ -100,6 +100,39 @@ set $w8 "8 "
 set $w9 "9 "
 set $w10 "10 "
 
+set $ww1 "1 "
+set $ww2 "2 "
+set $ww3 "3 "
+set $ww4 "4 "
+set $ww5 "5 "
+set $ww6 "6 "
+set $ww7 "7 "
+set $ww8 "8 "
+set $ww9 "9 "
+set $ww10 "10 "
+
+workspace $w1 output HDMI-0
+workspace $w2 output HDMI-0
+workspace $w3 output HDMI-0
+workspace $w4 output HDMI-0
+workspace $w5 output HDMI-0
+workspace $w6 output HDMI-0
+workspace $w7 output HDMI-0
+workspace $w8 output HDMI-0
+workspace $w9 output HDMI-0
+workspace $w10 output HDMI-0
+
+workspace $ww1 output DVI-I-0
+workspace $ww2 output DVI-I-0
+workspace $ww3 output DVI-I-0
+workspace $ww4 output DVI-I-0
+workspace $ww5 output DVI-I-0
+workspace $ww6 output DVI-I-0
+workspace $ww7 output DVI-I-0
+workspace $ww8 output DVI-I-0
+workspace $ww9 output DVI-I-0
+workspace $ww10 output DVI-I-0
+
 # switch to workspace
 bindsym $mod+1 workspace $w1
 bindsym $mod+2 workspace $w2
@@ -112,6 +145,17 @@ bindsym $mod+8 workspace $w8
 bindsym $mod+9 workspace $w9
 bindsym $mod+0 workspace $w10
 
+bindsym Mod3+1 workspace $ww1
+bindsym Mod3+2 workspace $ww2
+bindsym Mod3+3 workspace $ww3
+bindsym Mod3+4 workspace $ww4
+bindsym Mod3+5 workspace $ww5
+bindsym Mod3+6 workspace $ww6
+bindsym Mod3+7 workspace $ww7
+bindsym Mod3+8 workspace $ww8
+bindsym Mod3+9 workspace $ww9
+bindsym Mod3+0 workspace $ww10
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $w1
 bindsym $mod+Shift+2 move container to workspace $w2
@@ -123,6 +167,17 @@ bindsym $mod+Shift+7 move container to workspace $w7
 bindsym $mod+Shift+8 move container to workspace $w8
 bindsym $mod+Shift+9 move container to workspace $w9
 bindsym $mod+Shift+0 move container to workspace $w10
+
+bindsym Mod3+Shift+1 move container to workspace $ww1
+bindsym Mod3+Shift+2 move container to workspace $ww2
+bindsym Mod3+Shift+3 move container to workspace $ww3
+bindsym Mod3+Shift+4 move container to workspace $ww4
+bindsym Mod3+Shift+5 move container to workspace $ww5
+bindsym Mod3+Shift+6 move container to workspace $ww6
+bindsym Mod3+Shift+7 move container to workspace $ww7
+bindsym Mod3+Shift+8 move container to workspace $ww8
+bindsym Mod3+Shift+9 move container to workspace $ww9
+bindsym Mod3+Shift+0 move container to workspace $ww10
 
 assign [class="Firefox"] $w1
 assign [class="Steam"] $w8
@@ -191,7 +246,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 bar {
         position top
         status_command ~/.config/i3/status
-        # tray_output primary
+        tray_output primary
         tray_padding 2
         separator_symbol ""
         colors {
@@ -235,3 +290,4 @@ exec compton --config ~/.config/i3/compton.conf
 exec twmnd
 exec sh ~/.config/i3/bin/programs
 exec_always sh ~/.config/i3/bin/wallpaper
+exec_always xmodmap ~/.config/i3/Xmodmap
