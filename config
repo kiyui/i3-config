@@ -281,8 +281,8 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 bindsym Print exec ~/.config/i3/bin/maimshot
 bindsym $mod+Print exec ~/.config/i3/bin/maimcrop
-bindsym Ctrl+Mod1+Right workspace next
-bindsym Ctrl+Mod1+Left workspace prev
+bindsym Ctrl+Mod1+Right workspace next_on_output
+bindsym Ctrl+Mod1+Left workspace prev_on_output
 bindsym Ctrl+Mod1+f exec $www
 bindsym Ctrl+Mod1+n exec $fm
 
