@@ -97,12 +97,12 @@ set $w5 "5 "
 set $w6 "6 "
 set $w7 "7 "
 set $w8 "8 "
-set $w9 "9 "
+set $w9 "9 "
 set $w10 "10 "
 
-set $ww1 "1 "
-set $ww2 "2 "
-set $ww3 "3 "
+set $ww1 "1 "
+set $ww2 "2 "
+set $ww3 "3 "
 set $ww4 "4 "
 set $ww5 "5 "
 set $ww6 "6 "
@@ -182,6 +182,9 @@ bindsym Mod3+Shift+0 move container to workspace $ww10
 assign [class="Firefox"] $w1
 assign [class="Steam"] $w8
 assign [class="Telegram"] $w10
+assign [class="Spotify"] $ww1
+assign [class="chromium"] $ww2
+assign [class="Zeal"] $ww3
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
