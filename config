@@ -111,27 +111,30 @@ set $ww8 "8 "
 set $ww9 "9 "
 set $ww10 "10 "
 
-workspace $w1 output HDMI-0
-workspace $w2 output HDMI-0
-workspace $w3 output HDMI-0
-workspace $w4 output HDMI-0
-workspace $w5 output HDMI-0
-workspace $w6 output HDMI-0
-workspace $w7 output HDMI-0
-workspace $w8 output HDMI-0
-workspace $w9 output HDMI-0
-workspace $w10 output HDMI-0
+set $screen0 HDMI-0
+set $screen1 VGA-0
 
-workspace $ww1 output DVI-I-0
-workspace $ww2 output DVI-I-0
-workspace $ww3 output DVI-I-0
-workspace $ww4 output DVI-I-0
-workspace $ww5 output DVI-I-0
-workspace $ww6 output DVI-I-0
-workspace $ww7 output DVI-I-0
-workspace $ww8 output DVI-I-0
-workspace $ww9 output DVI-I-0
-workspace $ww10 output DVI-I-0
+workspace $w1 output $screen0
+workspace $w2 output $screen0
+workspace $w3 output $screen0
+workspace $w4 output $screen0
+workspace $w5 output $screen0
+workspace $w6 output $screen0
+workspace $w7 output $screen0
+workspace $w8 output $screen0
+workspace $w9 output $screen0
+workspace $w10 output $screen0
+
+workspace $ww1 output $screen1
+workspace $ww2 output $screen1
+workspace $ww3 output $screen1
+workspace $ww4 output $screen1
+workspace $ww5 output $screen1
+workspace $ww6 output $screen1
+workspace $ww7 output $screen1
+workspace $ww8 output $screen1
+workspace $ww9 output $screen1
+workspace $ww10 output $screen1
 
 # switch to workspace
 bindsym $mod+1 workspace $w1
@@ -181,7 +184,7 @@ bindsym Mod3+Shift+0 move container to workspace $ww10
 
 assign [class="Firefox"] $w1
 assign [class="Steam"] $w8
-assign [class="Telegram"] $w10
+assign [class="Cutegram"] $w10
 assign [class="Spotify"] $ww1
 assign [class="chromium"] $ww2
 assign [class="Zeal"] $ww3
