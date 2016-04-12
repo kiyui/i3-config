@@ -184,7 +184,7 @@ bindsym Mod3+Shift+0 move container to workspace $ww10
 
 assign [class="Firefox"] $w1
 assign [class="Steam"] $w8
-assign [class="Cutegram"] $w10
+assign [class="Telegram"] $w10
 assign [class="Spotify"] $ww1
 assign [class="chromium"] $ww2
 assign [class="Zeal"] $ww3
