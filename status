@@ -1,19 +1,14 @@
 #!/bin/sh
  
 # Coloring the output
-healthy='#74cc28'
-hot='#cc2828'
-blight='#8adae6'
-bdark='#14acc2'
-batt_healthy='#8cc350'
-batt_full='#98ef3b'
-batt_low='#ff1919'
-batt_discharge='#f7f78f'
+healthy='#64DD17'
+hot='#DD2C00'
+color='#fff'
+accent='#00E5FF'
 
 # Variables
 cpu_healthy=60
 gpu_healthy=60
-s='|'
 
 # Get device specific values
 if [[ -f ~/.config/i3/env ]]
@@ -23,8 +18,6 @@ fi
 # Set unset variables to default
 [[ -z $CPU_COMMAND ]] && CPU_COMMAND='sensors | grep "Physical id 0:" | cut -c18-19'
 [[ -z $GPU_COMMAND ]] && GPU_COMMAND='nvidia-smi -q -d TEMPERATURE | awk "/GPU Current Temp/ {print $5}" | cut -c39-40'
-[[ -z $CAPACITY_COMMAND ]] && CAPACITY_COMMAND='cat /sys/class/power_supply/BAT1/capacity'
-[[ -z $STATUS_COMMAND ]] && STATUS_COMMAND='cat /sys/class/power_supply/BAT1/status'
  
 while :
 do
@@ -34,8 +27,6 @@ do
     fday=$(date '+%A')
     fdate=$(date '+%d.%m.%Y')
     ftime=$(date '+%l:%M')
-    capacity=$(eval $CAPACITY_COMMAND)
-    status=$(eval $STATUS_COMMAND)
     
     if (($cpu >= $cpu_healthy));
     then
@@ -51,54 +42,9 @@ do
         gpus="GPU <span color=\"$healthy\">$gpu</span>"
     fi
 
-    if [[ $capacity != "disabled" ]]
-    then
-        if (($capacity >= 95));
-        then
-            battery="<span color=\"$batt_full\"></span>"
-        elif (($capacity >= 75));
-        then
-            if [[ "$status" = "Discharging" ]]
-            then
-                battery="<span color=\"$batt_discharge\"></span>"
-            else
-                battery="<span color=\"$batt_healthy\"></span>"
-            fi
-        elif (($capacity >= 50));
-        then
-            if [[ "$status" = "Discharging" ]]
-            then
-                battery="<span color=\"$batt_discharge\"></span>"
-            else
-                battery="<span color=\"$batt_healthy\"></span>"
-            fi
-        elif (($capacity >= 25));
-        then
-            if [[ "$status" = "Discharging" ]]
-            then
-                battery="<span color=\"$batt_discharge\"></span>"
-            else
-                battery="<span color=\"$batt_healthy\"></span>"
-            fi
-        else
-            if [[ "$status" = "Discharging" ]]
-            then
-                battery="<span color=\"$batt_low\"></span>"
-            else
-                battery="<span color=\"$batt_healthy\"></span>"
-            fi
-        fi
-    fi
-    
-    dates="<span color=\"$blight\">$fdate</span>"
-    times="<span color=\"$bdark\">$ftime</span>"
+    _date="<span color=\"$accent\">$fdate</span>"
+    _time="<span color=\"$accent\">$ftime</span>"
 
-    # Output the result
-    if [[ $capacity != "disabled" ]]
-    then
-        echo " $fday $dates $s   $cpus $gpus $s $battery  $s $times "
-    else
-        echo " $fday $dates $s   $cpus $gpus $s $times "
-    fi
+    echo "<span color=\"$color\">  $fday $_date   $cpus $gpus   $_time</span>"
     sleep 5
 done
