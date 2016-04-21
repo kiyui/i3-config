@@ -1,5 +1,5 @@
 #!/bin/sh
- 
+
 # Coloring the output
 healthy='#74cc28'
 hot='#cc2828'
@@ -25,7 +25,7 @@ fi
 [[ -z $GPU_COMMAND ]] && GPU_COMMAND='nvidia-smi -q -d TEMPERATURE | awk "/GPU Current Temp/ {print $5}" | cut -c39-41'
 [[ -z $CAPACITY_COMMAND ]] && CAPACITY_COMMAND='cat /sys/class/power_supply/BAT1/capacity'
 [[ -z $STATUS_COMMAND ]] && STATUS_COMMAND='cat /sys/class/power_supply/BAT1/status'
- 
+
 while :
 do
     # Get values
@@ -36,7 +36,7 @@ do
     ftime=$(date '+%l:%M')
     capacity=$(eval $CAPACITY_COMMAND)
     status=$(eval $STATUS_COMMAND)
-    
+
     if (($cpu >= $cpu_healthy));
     then
         cpus="CPU <span color=\"$hot\">$cpu</span>"
@@ -89,14 +89,14 @@ do
             fi
         fi
     fi
-    
+
     dates="<span color=\"$blight\">$fdate</span>"
     times="<span color=\"$bdark\">$ftime</span>"
 
     # Output the result
     if [[ $capacity != "disabled" ]]
     then
-        echo " $fday $dates $s   $cpus $gpus $s $battery  $s $times "
+        echo " $fday $dates $s   $cpus $gpus $s $capacity $battery  $s $times "
     else
         echo " $fday $dates $s   $cpus $gpus $s $times "
     fi
