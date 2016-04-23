@@ -1,19 +1,17 @@
 #!/bin/sh
 
 # Coloring the output
-healthy='#74cc28'
-hot='#cc2828'
-blight='#8adae6'
-bdark='#14acc2'
-batt_healthy='#8cc350'
-batt_full='#98ef3b'
-batt_low='#ff1919'
-batt_discharge='#f7f78f'
+healthy='#64DD17'
+hot='#DD2C00'
+color='#fff'
+accent='#00E5FF'
+batt_healthy='#C6FF00'
+batt_low='#DD2C00'
+batt_discharge='#FFEA00'
 
 # Variables
 cpu_healthy=60
 gpu_healthy=60
-s='|'
 
 # Get device specific values
 if [[ -f ~/.config/i3/env ]]
@@ -22,7 +20,7 @@ then
 fi
 # Set unset variables to default
 [[ -z $CPU_COMMAND ]] && CPU_COMMAND='sensors | grep "Physical id 0:" | cut -c18-19'
-[[ -z $GPU_COMMAND ]] && GPU_COMMAND='nvidia-smi -q -d TEMPERATURE | awk "/GPU Current Temp/ {print $5}" | cut -c39-41'
+[[ -z $GPU_COMMAND ]] && GPU_COMMAND='nvidia-smi -q -d TEMPERATURE | awk "/GPU Current Temp/ {print $5}" | cut -c39-40'
 [[ -z $CAPACITY_COMMAND ]] && CAPACITY_COMMAND='cat /sys/class/power_supply/BAT1/capacity'
 [[ -z $STATUS_COMMAND ]] && STATUS_COMMAND='cat /sys/class/power_supply/BAT1/status'
 
@@ -90,15 +88,15 @@ do
         fi
     fi
 
-    dates="<span color=\"$blight\">$fdate</span>"
-    times="<span color=\"$bdark\">$ftime</span>"
+    _date="<span color=\"$accent\">$fdate</span>"
+    _time="<span color=\"$accent\">$ftime</span>"
 
     # Output the result
     if [[ $capacity != "disabled" ]]
     then
-        echo " $fday $dates $s   $cpus $gpus $s $capacity $battery  $s $times "
+        echo "<span color=\"$color\">  $fday $_date   $cpus $gpus   $_time $battery  $capacit</span>"
     else
-        echo " $fday $dates $s   $cpus $gpus $s $times "
+        echo "<span color=\"$color\">  $fday $_date   $cpus $gpus   $_time</span>"
     fi
     sleep 5
 done

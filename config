@@ -36,7 +36,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start menu launcher
-bindsym $mod+d exec i3-dmenu-desktop
+bindsym $mod+d exec 'rofi -show run'
 
 # change focus
 bindsym $mod+j focus left
@@ -207,15 +207,13 @@ bar {
 }
 # command variables
 set $lockcmd "~/.config/i3/bin/lock"
-set $shutcmd "i3-nagbar -m ' Shutdown' -b 'confirm' 'shutdown -h now'"
-set $rebcmd "i3-nagbar -m ' Reboot' -b 'confirm' 'reboot'"
 set $fm "nautilus"
 set $www "firefox"
 
 # custom bindings
 bindsym $mod+Shift+a exec pavucontrol
 bindsym $mod+Shift+x exec $lockcmd
-bindsym $mod+Shift+s exec i3-nagbar -m ' System menu' -b 'shutdown' $shutcmd -b 'reboot' $rebcmd
+bindsym $mod+Shift+s exec i3-nagbar -m '  System menu' -b '  shutdown' 'shutdown -h now' -b '  reboot' 'reboot'
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioStop exec playerctl stop
