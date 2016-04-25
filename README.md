@@ -10,6 +10,7 @@ Requires:
 * [playerctl](https://github.com/acrisci/playerctl)
 * [imagemagick](https://github.com/ImageMagick/ImageMagick)
 * [compton](https://github.com/chjj/compton)
+* [rofi](https://davedavenport.github.io/rofi/)
 * i3lock, i3-nagbar
 
 # wallpaper setup
