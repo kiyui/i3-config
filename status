@@ -5,9 +5,11 @@ healthy='#64DD17'
 hot='#DD2C00'
 color='#fff'
 accent='#00E5FF'
-batt_healthy='#C6FF00'
-batt_low='#DD2C00'
-batt_discharge='#FFEA00'
+bat100="#76FF03"
+bat75="#C6FF00"
+bat50="#FFFF00"
+bat25="#FF9100"
+bat0="#DD2C00"
 
 # Variables
 cpu_healthy=60
@@ -53,38 +55,24 @@ do
     then
         if (($capacity >= 95));
         then
-            battery="<span color=\"$batt_full\"></span>"
-        elif (($capacity >= 75));
+            battery="<span color=\"$bat100\"> </span>"
+        elif (( $capacity >= 75));
         then
-            if [[ "$status" = "Discharging" ]]
-            then
-                battery="<span color=\"$batt_discharge\"></span>"
-            else
-                battery="<span color=\"$batt_healthy\"></span>"
-            fi
-        elif (($capacity >= 50));
+            battery="<span color=\"$bat75\"> </span>"
+        elif (( $capacity >= 50));
         then
-            if [[ "$status" = "Discharging" ]]
-            then
-                battery="<span color=\"$batt_discharge\"></span>"
-            else
-                battery="<span color=\"$batt_healthy\"></span>"
-            fi
-        elif (($capacity >= 25));
+            battery="<span color=\"$bat50\"> </span>"
+        elif (( $capacity >= 25));
         then
-            if [[ "$status" = "Discharging" ]]
-            then
-                battery="<span color=\"$batt_discharge\"></span>"
-            else
-                battery="<span color=\"$batt_healthy\"></span>"
-            fi
+            battery="<span color=\"$bat25\"> </span>"
         else
-            if [[ "$status" = "Discharging" ]]
-            then
-                battery="<span color=\"$batt_low\"></span>"
-            else
-                battery="<span color=\"$batt_healthy\"></span>"
-            fi
+            battery="<span color=\"$bat0\"> </span>"
+        fi
+        if [[ $status == "Discharging" ]]
+        then
+            plugged="<span color=\"$bat0\"></span>"
+        else
+            plugged="<span color=\"$bat100\"></span>"
         fi
     fi
 
@@ -94,7 +82,7 @@ do
     # Output the result
     if [[ $capacity != "disabled" ]]
     then
-        echo "<span color=\"$color\">  $fday $_date   $cpus $gpus   $_time $battery  $capacit</span>"
+        echo "<span color=\"$color\">  $fday $_date   $cpus $gpus   $_time $battery $capacity $plugged</span>"
     else
         echo "<span color=\"$color\">  $fday $_date   $cpus $gpus   $_time</span>"
     fi
