@@ -1,0 +1,13 @@
+#!/bin/sh
+sys_action=$(echo -e "Lock\nShutdown\nReboot" | rofi -dmenu)
+
+if [[ $sys_action == "Lock" ]]
+then
+    sh ~/.config/i3/bin/lock
+elif [[ $sys_action == "Shutdown" ]]
+then
+    shutdown -h now
+elif [[ $sys_action == "Reboot" ]]
+then
+    reboot
+fi
