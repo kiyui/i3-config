@@ -209,13 +209,14 @@ bar {
 }
 # command variables
 set $lockcmd "~/.config/i3/bin/lock"
+set $syscmd "~/.config/i3/bin/sys"
 set $fm "nautilus"
 set $www "firefox"
 
 # custom bindings
 bindsym $mod+Shift+a exec pavucontrol
 bindsym $mod+Shift+x exec $lockcmd
-bindsym $mod+Shift+s exec i3-nagbar -m '  System menu' -b '  shutdown' 'shutdown -h now' -b '  reboot' 'reboot'
+bindsym $mod+Shift+s exec $syscmd
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioStop exec playerctl stop
