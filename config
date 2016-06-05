@@ -236,6 +236,9 @@ bindsym Ctrl+Mod1+n exec $fm
 # hidpi settings
 exec xrdb -merge ~/.Xresources
 
+# numlock
+numlockx on
+
 exec compton --config ~/.config/i3/compton.conf
 exec twmnd
 exec sh ~/.config/i3/bin/programs
