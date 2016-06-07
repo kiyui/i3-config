@@ -237,7 +237,7 @@ bindsym Ctrl+Mod1+n exec $fm
 exec xrdb -merge ~/.Xresources
 
 # numlock
-numlockx on
+exec numlockx on
 
 exec compton --config ~/.config/i3/compton.conf
 exec twmnd
