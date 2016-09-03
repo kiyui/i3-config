@@ -90,7 +90,7 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # workspace names
-set $w1 "1 "
+set $w1 "1 "
 set $w2 "2 "
 set $w3 "3 "
 set $w4 "4 "
@@ -125,7 +125,7 @@ bindsym $mod+Shift+8 move container to workspace $w8
 bindsym $mod+Shift+9 move container to workspace $w9
 bindsym $mod+Shift+0 move container to workspace $w10
 
-assign [class="Firefox"] $w1
+assign [class="chromium"] $w1
 assign [class="Electrum"] $w7
 assign [class="Steam"] $w8
 assign [class="spotify"] $w9
