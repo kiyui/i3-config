@@ -168,6 +168,8 @@ bindsym $mod+r mode "resize"
 new_window none
 new_float none
 
+for_window [title="(Android |)Emulator(.*)"] floating enable
+
 # theme colors
 set $bg-color 	         #2f343f
 set $inactive-bg-color   #2f343f
