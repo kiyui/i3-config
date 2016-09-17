@@ -234,6 +234,7 @@ bindsym Ctrl+Mod1+f exec $www
 bindsym Ctrl+Mod1+n exec $fm
 
 # hidpi settings
+exec xrandr --dpi 192
 exec xrdb -merge ~/.Xresources
 
 # numlock
